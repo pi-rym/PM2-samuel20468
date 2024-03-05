@@ -29,4 +29,14 @@ const tempData = [
     poster:
       "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
   },
+  {
+    title: "Breaking Bad",
+    year: 2008,
+    director: "Vince Gilligan",
+    duration: "2d 13h",
+    genre: ["Crime drama", "Suspense", "Thriller"],
+    rate: 9.5,
+    poster:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEUOnXKnRL0jeo6y4_Nzt0RggJHYbxI_RjJUgCvmdG28BAwpAx",
+  },
 ];
