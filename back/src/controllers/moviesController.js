@@ -1,6 +1,12 @@
+const moviesService = require("../services/moviesService");
 const controllerMovies = {
-    index: (req, res) => {
-        res.status(200).send({ message: "Welcome to the movies page" });
+    getAllMovies: async (req, res) => {
+        try {
+            const data = await moviesService.getMovies();
+            return res.status(200).send(data);
+        } catch (error) {
+            return res.status(400).json({message : error.message})
+        }
     },
 };
 

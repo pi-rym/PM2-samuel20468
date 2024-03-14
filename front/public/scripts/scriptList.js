@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const getElements = async () => {
   try {
-    const fetchApi = "https://students-api.up.railway.app/movies";
+    const fetchApi = "http://localhost:3000/movies";
     const response = await axios(fetchApi);
     const data = response.data;
 
