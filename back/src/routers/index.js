@@ -1,5 +1,4 @@
 const {Router} = require("express");
-const homeRouter = require("./homeRouter");
 const moviesRouter = require("./moviesRouter");
 
 const router  = Router();

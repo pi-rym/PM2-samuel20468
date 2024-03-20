@@ -1,14 +1,4 @@
 const utilitiesFunctions = {
-  bbObject: {
-    title: "Breaking Bad",
-    year: 2008,
-    director: "Vince Gilligan",
-    duration: "2d 13h",
-    genre: ["Crime drama", "Suspense", "Thriller"],
-    rate: 9.5,
-    poster:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEUOnXKnRL0jeo6y4_Nzt0RggJHYbxI_RjJUgCvmdG28BAwpAx",
-  },
   renderAllCards: (movieList) => {
     const listContainer = document.querySelector(".list-container");
     movieList.forEach((movieData) => {
