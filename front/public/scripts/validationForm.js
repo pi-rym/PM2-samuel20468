@@ -81,11 +81,17 @@ const postMovie = async (objMovie) => {
   try {
     const URL_API = "http://localhost:3000/movies/create-movie";
     const response = await axios.post(URL_API, objMovie);
-    console.log(response.data);
+    console.log("hola" + response.data.error);
 
     resetForm();
   } catch (error) {
-    console.error(error);
+    console.error("chau" + error.response.data.error);
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `Error al crear la película: ${error.response.data.error}`,
+      confirmButtonColor: "rgb(181, 18, 27)",
+    });
   }
 };
 

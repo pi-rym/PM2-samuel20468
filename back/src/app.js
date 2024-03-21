@@ -19,7 +19,7 @@ app.use((req, res) => {
 // Global Error Handler  
 app.use((err, req, res, next) => {  
     console.log(`Error Occurred : ${err.message}`);    
-    res.status(500).send({ error: 'Internal Server Error' })
+    res.status(err.statusCode).send({ error: err.message })
     next();    
 });
 
