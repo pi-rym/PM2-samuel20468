@@ -19,7 +19,7 @@ app.use((req, res) => {
 // Global Error Handler  
 app.use((err, req, res, next) => {  
     console.log(`Error Occurred : ${err.message}`);    
-    res.status(err.statusCode).send({ error: err.message })
+    res.status(err.statusCode).json({ error: err.message });
     next();    
 });
 

@@ -9,7 +9,6 @@ const validateForm = async (e) => {
   let isValid = true;
 
   const movieInputs = document.querySelectorAll(".input");
-  const createButton = document.querySelector(".submit");
 
   movieInputs.forEach((input) => {
     if (!input.value) {
@@ -40,6 +39,27 @@ const validateForm = async (e) => {
       confirmButtonColor: "rgb(181, 18, 27)",
     });
   } else if (isValid) {
+    const newMovie = {};
+  
+    movieInputs.forEach((input) => {
+      newMovie[input.name] = input.value;
+    });
+  
+    const selectedGenres = [
+      ...document.querySelectorAll(".select option:checked"),
+    ].map((option) => option.value);
+  
+    newMovie.genre = selectedGenres;
+  
+    postMovie(newMovie);
+  };
+};
+
+const postMovie = async (objMovie) => {
+  const createButton = document.querySelector(".submit");
+  try {
+    const URL_API = "http://localhost:3000/movies/create-movie";
+    await axios.post(URL_API, objMovie);
     createButton.disabled = true;
     const Toast = Swal.mixin({
       toast: true,
@@ -58,34 +78,9 @@ const validateForm = async (e) => {
       title: "Película creada correctamente",
     });
     createButton.disabled = false;
-  }
-
-  if (isValid) {
-    const newMovie = {};
-
-    movieInputs.forEach((input) => {
-      newMovie[input.name] = input.value;
-    });
-
-    const selectedGenres = [
-      ...document.querySelectorAll(".select option:checked"),
-    ].map((option) => option.value);
-
-    newMovie.genre = selectedGenres;
-
-    postMovie(newMovie);
-  }
-};
-
-const postMovie = async (objMovie) => {
-  try {
-    const URL_API = "http://localhost:3000/movies/create-movie";
-    const response = await axios.post(URL_API, objMovie);
-    console.log("hola" + response.data.error);
 
     resetForm();
   } catch (error) {
-    console.error("chau" + error.response.data.error);
     Swal.fire({
       icon: "error",
       title: "Oops...",

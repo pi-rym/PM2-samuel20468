@@ -254,11 +254,16 @@ div .select {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.6);
 }
 .reset {
-  background-color: seagreen;
+  background-color: #31363f;
 }
 
-.submit:hover,
 .reset:hover {
+  background-color: transparent;
+  border: 1px solid #eee;
+  transform: scale(1.05);
+}
+
+.submit:hover {
   background-color: #31363f;
   color: #fff;
   transform: scale(1.05);
